@@ -1,4 +1,4 @@
 #practiceのみ追跡する
 /*
-!.gitignore
+!/.gitignore
 !/book-js/practice/*
