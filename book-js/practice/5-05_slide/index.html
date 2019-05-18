@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../../_common/css/style.css" rel="stylesheet" type="text/css">
+<style>
+.slide {
+    width: 720px;
+    margin: 0 auto;
+    background-color: black;
+    border: 1px solid black;
+}
+.main-image {
+    max-width: 100%;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#prev-button {
+    background: url(images/prev.png) no-repeat;
+    width: 40px;
+    height: 40px;
+}
+#page-num {
+    color: white;
+    width: 60px;
+    height: 40px;
+    vertical-align: middle;
+    
+}
+#next-button {
+    background: url(images/next.png) no-repeat;
+    width: 40px;
+    height: 40px;
+}
+
+</style>
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>タイトル</h1>
+<h2>サブタイトル</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+<div class="slide">
+    <div class="image-box">
+        <img src="images/image1.jpg" class="main-image" id="main-image">
+    </div>
+    <div class="nav">
+        <div id="prev-button"></div>
+        <div id="page-num"><span id="page-index">1</span> of 5</div>
+        <div id="next-button"></div>
+    </div>
+</div>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script>
+//画像のpathを配列として保持し、次へボタン、戻るボタンが押されるにつれインデックスが変化して表示される画像が変わる
+var img_index = 1;
+var img_list = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg", "images/image4.jpg", "images/image5.jpg"];
+//同じ操作は関数化
+var changeImage = function(dir) {
+    if (img_index + dir >= 0 && img_index + dir < img_list.length) {
+        img_index += dir;
+        document.getElementById('main-image').src = img_list[img_index];
+        document.getElementById('page-index').textContent = img_index + 1;
+    }
+}
+document.getElementById('prev-button').onclick = function() {
+    changeImage(-1);
+    } 
+document.getElementById('next-button').onclick = function() {
+    changeImage(1);
+    } 
+
+</script>
+</body>
+</html>

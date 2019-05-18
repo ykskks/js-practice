@@ -3,3 +3,5 @@
 !/book-js/
 /book-js/*
 !/book-js/practice/
+*.jpg
+*.png
