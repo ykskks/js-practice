@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../../_common/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>タイトル</h1>
+<h2>サブタイトル</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+	<p id="estimated_age"></p>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script>
+var your_age = parseInt(window.prompt('あなたの年齢は?'));
+var sugggest_avg_height = function(age) {
+    if (age <= 20) {
+        var height = age * 8.5
+        return height;
+    } else {
+        return 170;
+    }
+}
+
+document.getElementById('estimated_age').textContent = 'あなたの年齢の平均身長は' + sugggest_avg_height(your_age) + 'です！';
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../../_common/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>タイトル</h1>
+<h2>サブタイトル</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+    <h2>東京オリンピックまで</h2>
+    <p class="timer" style="padding-left: 100px; font-size: 30px">あと<span id="day" style="font-size: 60px"></span>日<span id="hour" style="font-size: 60px"></span>時間
+    <span id="min" style="font-size: 60px"></span>分<span id="sec" style="font-size: 60px"></span>秒</p>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script>
+//function to return the time difference between the current time and the specific goal time in the future
+var countdown = function(due) {
+    var now = new Date();
+
+    var diff = due.getTime() - now.getTime();
+    var sec = Math.floor(diff / 1000) % 60;
+    var min = Math.floor(diff / 1000 / 60) % 60;
+    var hour = Math.floor(diff / 1000 / 60 / 60) % 24;
+    var day = Math.floor(diff / 1000 / 60 / 60 / 24);
+
+    var count = [day, hour, min, sec];
+
+    return count;
+}
+
+var goal = new Date(2020, 7, 24);
+
+var recalc = function() {
+    var rest = countdown(goal);
+    //var time = rest[1] + "時間" + rest[2] + "分" + rest[3] + "秒";
+    document.getElementById('day').textContent = rest[0];
+    document.getElementById('hour').textContent = rest[1];
+    document.getElementById('min').textContent = rest[2];
+    document.getElementById('sec').textContent = rest[3];
+    refresh()
+}
+
+var refresh = function() {
+    setTimeout(recalc, 1000);
+}
+
+recalc();
+</script>
+</body>
+</html>
