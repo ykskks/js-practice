@@ -1,7 +1,12 @@
 #practiceのみ追跡する
+<<<<<<< HEAD
+*
+!/book-js/practice
+=======
 /*
 !/book-js/
 /book-js/*
 !/book-js/practice/
 *.jpg
 *.png
+>>>>>>> 18e2c517a315f2982bc1e4a08315322dd3ad14ed
