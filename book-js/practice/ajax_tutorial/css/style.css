@@ -1,0 +1,16 @@
+body {
+    padding: 10px 20px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+#btn {
+    height: 30px;
+    margin: 0 30px;
+    background-color: lightblue;
+}
+.hide-me {
+    display: None;
+}
